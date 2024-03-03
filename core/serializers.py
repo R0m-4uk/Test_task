@@ -15,6 +15,7 @@ class UserSerializer(serializers.ModelSerializer):
 
 
 class GroupSerializer(serializers.ModelSerializer):
+    amount_students = serializers.IntegerField(read_only=True)
     class Meta:
         model = Group
         fields = '__all__'
@@ -49,7 +50,7 @@ class LessonsOnProductSerializer(serializers.ModelSerializer):
 
     class Meta:
         model = Product
-        fields = ('name_product', 'user_id', 'date_start',
+        fields = ('name', 'user_id', 'date_start',
                   'cost', 'min_group_size', 'max_group_size',
                   'created_at', 'lessons_count')
 

@@ -12,29 +12,30 @@ class UserAdmin(admin.ModelAdmin):
 
 
 class ProductAdmin(admin.ModelAdmin):
-    list_display = ['name_product', 'user_id', 'date_start', 'cost', 'min_group_size', 'max_group_size', 'created_at']
+    list_display = ['name', 'user', 'date_start', 'cost', 'min_group_size', 'max_group_size', 'created_at']
 
     def user_name(self, obj):
         return obj.user_id.get_full_name()
 
+
 class GroupAdmin(admin.ModelAdmin):
-    list_display = ['name_group', 'product_id', 'created_at']
+    list_display = ['name', 'product', 'created_at']
 
 
 class LessonAdmin(admin.ModelAdmin):
-    list_display = ['name_lesson', 'video_url', 'product_id', 'created_at']
+    list_display = ['name', 'video_url', 'product', 'created_at']
 
 
 class RoleAdmin(admin.ModelAdmin):
-    list_display = ['name_role', 'created_at']
+    list_display = ['name', 'created_at']
 
 
 class UserToProductAdmin(admin.ModelAdmin):
-    list_display = ['user_id', 'product_id']
+    list_display = ['user', 'product']
 
 
 class UserToGroupAdmin(admin.ModelAdmin):
-    list_display = ['user_id', 'group_id', 'role_id']
+    list_display = ['user', 'group', 'role']
 
 
 admin.site.register(User, UserAdmin)

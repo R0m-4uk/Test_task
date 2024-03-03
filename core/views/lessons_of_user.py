@@ -17,10 +17,10 @@ class LessonsOfUser(APIView):
         user = get_object_or_404(User, pk=user_id)
 
         # Проверяем доступ пользователя к продукту
-        user_to_product = get_object_or_404(UserToProduct, user_id_id=user, product_id_id=product_id)
+        get_object_or_404(UserToProduct, user_id=user, product_id=product_id)
 
         # Получаем список уроков для данного продукта
-        lessons = Lesson.objects.filter(product_id_id=product_id)
+        lessons = Lesson.objects.filter(product_id=product_id)
 
         # Сериализуем и возвращаем список уроков
         serializer = LessonSerializer(lessons, many=True)
